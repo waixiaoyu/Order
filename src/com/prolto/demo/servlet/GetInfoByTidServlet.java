@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.prolto.demo.utils.HttpRequest;
 import com.prolto.demo.utils.MD5;
@@ -16,10 +18,12 @@ import com.prolto.demo.utils.MD5;
 /**
  * Servlet implementation class GetInfoByTid
  */
-@WebServlet("/GetInfoByTidServlet")
+@WebServlet(name = "GetInfoByTidServlet", urlPatterns = "/getInfoByTid")
 public class GetInfoByTidServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private static final String TEST_SHOP_CODE="CS02";
+	private static final String TEST_TID="14100002220131";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -32,8 +36,10 @@ public class GetInfoByTidServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("GetInfoByTidServlet");
 		String tid = request.getParameter("tid");
 		String shop_code = request.getParameter("shop_code");
+		System.out.println(tid+shop_code);
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time = format.format(new Date());
 		String test = "14643193030389app_key1464319303"
@@ -43,11 +49,17 @@ public class GetInfoByTidServlet extends HttpServlet {
 		String url = "http://120.24.59.88/oms/webservice.php";
 		String param = "app_key=1464319303&method=oms.OrderQueryInfoByTid&shop_code="+ shop_code
 				+ "&tid=" + tid+ "&timestamp=" + time + "&app_sign=" + md5Str;
+		System.out.println(param);
+		
+		
 		String responseStr = HttpRequest.sendGet(url, param);
 		String urlStr = url + "?" + param;
-		String jsonStr = "{\"urlStr\":\""+ urlStr +"\",\"responseStr\":\"" + responseStr +"\"}";
-		response.getOutputStream().write(jsonStr.getBytes("UTF-8"));  
-		response.setContentType("text/json; charset=UTF-8");
+		
+		request.setAttribute("urlStr", urlStr);
+		request.setAttribute("responseStr", responseStr);
+
+		ServletContext sc = getServletContext();
+		sc.getRequestDispatcher("/getInfoByTid.jsp").forward(request, response);
 	}
 
 	/**

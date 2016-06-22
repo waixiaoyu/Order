@@ -13,20 +13,19 @@
 <body>
 	<div>
 		<div>
-			<form action="">
+			<form action="getInfoByTid">
 				店铺号：<input type="text" name="shop_code"><br /> 交易号：<input
 					type="text" name="tid"><br />
-				<button id="getBtn" type="submit" class="btn btn-default"
-					onClick="javascript:doGet()">查询</button>
+				<button id="getBtn" type="submit" class="btn btn-default">查询</button>
 			</form>
 		</div>
 		<div>
 			<p>请求URL:</p>
-			<p class="url" id="url" style="background-color: #CCC"></p>
+			<p class="url" id="url" style="background-color: #CCC">${urlStr}</p>
 		</div>
 		<div>
 			<p>响应内容:</p>
-			<p class="response" id="response" style="background-color: #CCC"></p>
+			<p class="response" id="response" style="background-color: #CCC">${responseStr}</p>
 		</div>
 	</div>
 </body>
