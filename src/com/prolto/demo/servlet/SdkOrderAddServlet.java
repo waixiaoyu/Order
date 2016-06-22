@@ -98,8 +98,8 @@ public class SdkOrderAddServlet extends HttpServlet {
 		order.setOrder_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 		order.setPayment_type(0);
 		order.setDistribution_status(0);
-		order.setPlat_lastchanged("00:00:00");
-		order.setExpress_no(new SimpleDateFormat("yyyymmddHHmmss").format(new Date()));
+		order.setPlat_lastchanged(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+		order.setExpress_no(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date()));
 
 		// 设定表单中的参数
 		String title1 = request.getParameter("title1");

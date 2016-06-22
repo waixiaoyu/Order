@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <!DOCTYPE html>
-
+<!-- saved from url=(0054)http://v3.bootcss.com/examples/starter-template/#about -->
 <html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,62 +41,88 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="./getInfoByTid.jsp">测试页面</a>
+          <a class="navbar-brand" href="./sdkOrderAdd.jsp">测试页面</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="./getInfoByTid.jsp">交易号查询订单测试</a></li>
-            <li><a href="./sdkOrderAdd.jsp">添加订单测试</a></li>
+            <li><a href="./getInfoByTid.jsp">交易号查询订单测试</a></li>
+            <li class="active"><a href="./sdkOrderAdd.jsp">添加订单测试</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
-</p>
     <div class="container">
 
-
-
+  
+    
+<form action="sdkOrderAdd"> 
+<input type="hidden" name="shop_code" value="CS02"><br /> 
 
 <div class="panel panel-default">
+  <div class="panel-heading">商品1</div>
   <div class="panel-body">
-          <form action="getInfoByTid">
+            <input type="hidden" name="title1" value="good1">商品1<br /> 
+        <label for="name">商品号（SKU）</label>
+        <input type="hidden" name="sku1" value="140405">140405<br /> 
+        <label for="name">商品数量</label>
+        <input type="text" name="number1"><br />
+        <input type="hidden" name="price1" value="88.88"><br /> 
 
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">店铺号</span>
-  <input type="text" name="shop_code" class="form-control" placeholder="shop code" aria-describedby="basic-addon1">
-</div>
-
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1">交易号</span>
-  <input type="text" name="tid" class="form-control" placeholder="tid" aria-describedby="basic-addon1">
-</div>
-
-        <button id="getBtn" type="submit" class="btn btn-default">查询</button>
-      </form>
   </div>
 </div>
 
-		<ul class="nav nav-list">
-		  <li class="divider"></li>
-		</ul>
+<div class="panel panel-default">
+  <div class="panel-heading">商品2</div>
+  <div class="panel-body">
+          <input type="hidden" name="title2" value="good2">商品2<br /> 
+        <label for="name">商品号（SKU）</label>
+        <input type="hidden" name="sku2" value="19090823">19090823<br /> 
+        <label for="name">商品数量</label>
+        <input type="text" name="number2"><br /> 
+        <input type="hidden" name="price2" value="99.98"><br /> 
+  </div>
+</div>
+
 
 <div class="panel panel-default">
+  <div class="panel-heading">输入收货信息</div>
   <div class="panel-body">
-       <div>
+        收货人姓名：<input type="text"  name="consignee"><br />
+        电话：<input type="text" name="phone"><br />
+        省：<input type="text"  name="province"><br />
+        市：<input type="text"  name="city"><br />
+        区：<input type="text"  name="area"><br />
+        邮编：<input type="text" name="zipcode"><br />
+        详细地址：<input type="text" name="address"><br />
+        <button id="getBtn" type="submit" class="btn btn-default">提交订单</button>
+  </div>
+</div>     
+
+        
+      </form>
+
+ <div class="panel panel-default">
+  <div class="panel-body">
+    <div>
       <label for="name">请求URL</label>
-      <div class="alert alert-danger">
-      ${urlStr}
-      </div>
+      <div class="alert alert-danger">${urlStr}</div>
     </div>
     <div>
       <label for="name">响应内容</label>
-      <div class="alert alert-danger">
-      ${responseStr}
-      </div>
+      <div class="alert alert-danger">${responseStr}</div>
+    </div>
+    <div>
+      <label for="name">交易号</label>
+      <div class="alert alert-danger">${tidStr}</div>
+    </div>
+    <div>
+      <label for="name">物流单号</label>
+      <div class="alert alert-danger">${expNoStr}</div>
     </div>
   </div>
 </div>
+    
 
 
 
