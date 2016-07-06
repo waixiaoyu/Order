@@ -113,6 +113,18 @@ public class Order {
 	public String getShop_code() {
 		return shop_code;
 	}
+	public long getConsignee_doc_type() {
+		return consignee_doc_type;
+	}
+	public void setConsignee_doc_type(long consignee_doc_type) {
+		this.consignee_doc_type = consignee_doc_type;
+	}
+	public String getConsignee_doc_no() {
+		return consignee_doc_no;
+	}
+	public void setConsignee_doc_no(String consignee_doc_no) {
+		this.consignee_doc_no = consignee_doc_no;
+	}
 	public void setShop_code(String shop_code) {
 		this.shop_code = shop_code;
 	}

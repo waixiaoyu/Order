@@ -39,6 +39,7 @@ public class SdkOrderAddServlet extends HttpServlet {
 	public SdkOrderAddServlet() {
 		super();
 		this.order = new Order();
+		order.setConsignee_doc_type((long)1);
 		// TODO Auto-generated constructor stub
 	}
 
