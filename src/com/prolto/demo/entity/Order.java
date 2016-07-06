@@ -19,6 +19,8 @@ public class Order {
 	String city;      // 市 ,
 	String area;      // 区 ,
 	String zipcode;   // 邮编 ,
+	long consignee_doc_type;   // 收货人证件类型, 1身份证 2护照 3其他 , ,
+	String consignee_doc_no ;   // 收货人证件号  ,
 	String seller_flag;
 	String buyer_remark; // 买家备注 ,
 	String seller_remark;// 卖家备注 ,
@@ -40,14 +42,22 @@ public class Order {
 	String supplier;
 	ArrayList<Sdk_order_detail> detail;
 	Inline_Model_1 _custom;
-	public Order(String shop_code, String tid, String user_nick, String consignee, String phone, String mobile,
-			String email, String address, String province, String city, String area, String zipcode,
-			String buyer_remark, String seller_remark, double order_price, double postage, String order_time,
-			String payment_time, int invoice_type, String invoice_title, String invoice_content, double invoice_amount,
-			int payment_type, ArrayList<Sdk_order_detail> detail) {
+	
+	public Order(String shop_code, String sellet_nick, String tid, int c_status, String status, String express_code,
+			String user_nick, String consignee, String phone, String mobile, String email, String address,
+			String province, String city, String area, String zipcode, long consignee_doc_type, String consignee_doc_no,
+			String seller_flag, String buyer_remark, String seller_remark, double order_price, double postage,
+			double cod_price, String order_time, String payment_time, int invoice_type, String invoice_title,
+			String invoice_content, double invoice_amount, int payment_type, int distribution_status,
+			String plat_lastchanged, int distribution_mode, String distribution_name, String express_no,
+			String supplier, ArrayList<Sdk_order_detail> detail, Inline_Model_1 _custom) {
 		super();
 		this.shop_code = shop_code;
+		this.sellet_nick = sellet_nick;
 		this.tid = tid;
+		this.c_status = c_status;
+		this.status = status;
+		this.express_code = express_code;
 		this.user_nick = user_nick;
 		this.consignee = consignee;
 		this.phone = phone;
@@ -58,10 +68,14 @@ public class Order {
 		this.city = city;
 		this.area = area;
 		this.zipcode = zipcode;
+		this.consignee_doc_type = consignee_doc_type;
+		this.consignee_doc_no = consignee_doc_no;
+		this.seller_flag = seller_flag;
 		this.buyer_remark = buyer_remark;
 		this.seller_remark = seller_remark;
 		this.order_price = order_price;
 		this.postage = postage;
+		this.cod_price = cod_price;
 		this.order_time = order_time;
 		this.payment_time = payment_time;
 		this.invoice_type = invoice_type;
@@ -69,7 +83,14 @@ public class Order {
 		this.invoice_content = invoice_content;
 		this.invoice_amount = invoice_amount;
 		this.payment_type = payment_type;
+		this.distribution_status = distribution_status;
+		this.plat_lastchanged = plat_lastchanged;
+		this.distribution_mode = distribution_mode;
+		this.distribution_name = distribution_name;
+		this.express_no = express_no;
+		this.supplier = supplier;
 		this.detail = detail;
+		this._custom = _custom;
 	}
 	public Order() {
 		super();
